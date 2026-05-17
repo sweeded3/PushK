@@ -2,38 +2,39 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 const base = import.meta.env.BASE_URL;
+const asset = (path) => `${base}${path}`;
 
 const services = [
   {
     title: "Комплексный уход для собак",
     text: "Стрижка, купание, сушка, уход за ушами и когтями",
     price: "от 2400 ₽",
-    image: `${base}assets/toy-dog.jpg`
+    image: asset("toy-dog.jpg")
   },
   {
     title: "Комплексный уход для кошек",
     text: "Полный комплекс ухода для питомца",
     price: "от 2400 ₽",
-    image: `${base}assets/shiba-fur.jpg`
+    image: asset("shiba-fur.jpg")
   },
   {
     title: "Гигиенический уход SPA",
     text: "Стрижка, купание, сушка, чистка ушей и когтей",
     price: "от 2200 ₽",
-    image: `${base}assets/black-after.jpg`
+    image: asset("black-after.jpg")
   },
   {
     title: "Дополнительные услуги",
     text: "Стрижка когтей, чистка ушек, экспресс-уход",
     price: "от 300 ₽",
-    image: `${base}assets/corgi-play.jpg`
+    image: asset("corgi-play.jpg")
   }
 ];
 
 const gallery = [
-  { before: `${base}assets/pomeranian-before.jpg`, after: `${base}assets/toy-dog.jpg`, label: "Шпиц" },
-  { before: `${base}assets/chihuahua-before-1.jpg`, after: `${base}assets/chihuahua-after-1.jpg`, label: "Мини-порода" },
-  { before: `${base}assets/black-before.jpg`, after: `${base}assets/black-after.jpg`, label: "Форма" }
+  { before: asset("pomeranian-before.jpg"), after: asset("toy-dog.jpg"), label: "Шпиц" },
+  { before: asset("chihuahua-before-1.jpg"), after: asset("chihuahua-after-1.jpg"), label: "Мини-порода" },
+  { before: asset("black-before.jpg"), after: asset("black-after.jpg"), label: "Форма" }
 ];
 
 const benefits = [
@@ -45,9 +46,9 @@ const benefits = [
 ];
 
 const reviews = [
-  { name: "Анна и Молли", text: "Спасибо за потрясающий уход! Молли всегда рада сюда приходить, выглядит счастливой и такой красивой.", image: `${base}assets/toy-dog.jpg`, date: "12 мая 2024" },
-  { name: "Сергей и Барни", text: "Отличный салон, профессиональные мастера и внимательное отношение. Видно, как любят после каждого визита.", image: `${base}assets/corgi-play.jpg`, date: "8 мая 2024" },
-  { name: "Мария и Луна", text: "Очень любим «Пушистый Контур»! Всегда чисто, уютно и с заботой о питомцах.", image: `${base}assets/black-after.jpg`, date: "3 мая 2024" }
+  { name: "Анна и Молли", text: "Спасибо за потрясающий уход! Молли всегда рада сюда приходить, выглядит счастливой и такой красивой.", image: asset("toy-dog.jpg"), date: "12 мая 2024" },
+  { name: "Сергей и Барни", text: "Отличный салон, профессиональные мастера и внимательное отношение. Видно, как любят после каждого визита.", image: asset("corgi-play.jpg"), date: "8 мая 2024" },
+  { name: "Мария и Луна", text: "Очень любим «Пушистый Контур»! Всегда чисто, уютно и с заботой о питомцах.", image: asset("black-after.jpg"), date: "3 мая 2024" }
 ];
 
 const steps = [
@@ -75,7 +76,7 @@ const steps = [
           </div>
 
           <div class="hero-media" aria-label="Пудель до и после груминга">
-            <img class="hero-dog" src={`${base}hero-poodle.png`} alt="Пудель до и после груминга" loading="eager" />
+            <img class="hero-dog" src={asset("hero-poodle.png")} alt="Пудель до и после груминга" loading="eager" />
           </div>
         </div>
 
@@ -121,7 +122,7 @@ const steps = [
             <p>Скидка на первый груминг щенков 15% и специальные условия для заводчиков.</p>
             <a class="btn btn-accent" href="#contact">Получить скидку</a>
           </div>
-          <img src={`${base}banner-poodle.png`} alt="Пятнистый пудель на промо-баннере" loading="lazy" />
+          <img src={asset("banner-poodle.png")} alt="Пятнистый пудель на промо-баннере" loading="lazy" />
         </div>
       </section>
 
