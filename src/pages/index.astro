@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 const base = import.meta.env.BASE_URL;
-const asset = (path) => `${base}${path}`;
+const asset = (path) => `${base}assets/${path}`;
 
 const services = [
   {
@@ -76,7 +76,7 @@ const steps = [
           </div>
 
           <div class="hero-media" aria-label="Пудель до и после груминга">
-            <img class="hero-dog" src={asset("hero-poodle.png")} alt="Пудель до и после груминга" loading="eager" />
+            <img class="hero-dog" src={asset("toy-dog.jpg")} alt="Пудель после груминга" loading="eager" />
           </div>
         </div>
 
