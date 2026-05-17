@@ -2,43 +2,45 @@
 import "../styles/global.css";
 
 const {
-  title = "Пушистый контур — груминг-салон для собак и кошек",
-  description = "Пушистый контур — бережный груминг для собак и кошек: комплексный уход, экспресс-линька, SPA, спокойная атмосфера и онлайн-запись.",
-  image = "/assets/logo-color.png"
+  title = "Пушистый Контур — груминг салон",
+  description = "Груминг-салон «Пушистый Контур»: аккуратные стрижки, SPA-уход, вычёс, гигиена и забота о питомцах."
 } = Astro.props;
-
 const base = import.meta.env.BASE_URL;
-const canonicalUrl = new URL(base, Astro.site ?? Astro.url).toString();
-const imageUrl = new URL(`${base}${image.replace(/^\//, "")}`, Astro.site ?? Astro.url).toString();
 ---
 <!doctype html>
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#1d8a8d" />
-    <link rel="canonical" href={canonicalUrl} />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="ru_RU" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={imageUrl} />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={imageUrl} />
-
-    <title>{title}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#087f82" />
+    <link rel="icon" href={`${base}favicon.svg`} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <title>{title}</title>
   </head>
   <body>
-    <a class="skip-link" href="#content">Перейти к содержанию</a>
+    <a class="skip-link" href="#content">Перейти к содержимому</a>
     <slot />
-    <script type="module" src={`${base}app.js`}></script>
+    <script>
+      const header = document.querySelector("[data-header]");
+      const toggle = document.querySelector("[data-nav-toggle]");
+      const navLinks = document.querySelectorAll("[data-nav] a");
+
+      function closeMenu() {
+        header?.classList.remove("is-open");
+        document.documentElement.classList.remove("nav-open");
+        toggle?.setAttribute("aria-expanded", "false");
+      }
+
+      toggle?.addEventListener("click", () => {
+        const isOpen = header?.classList.toggle("is-open");
+        document.documentElement.classList.toggle("nav-open", Boolean(isOpen));
+        toggle.setAttribute("aria-expanded", String(Boolean(isOpen)));
+      });
+
+      navLinks.forEach((link) => link.addEventListener("click", closeMenu));
+    </script>
   </body>
 </html>
