@@ -66,6 +66,11 @@ const steps = [
       <section class="hero" aria-labelledby="hero-title">
         <div class="container hero-grid">
           <div class="hero-copy">
+            <div class="place-badges" aria-label="Награды Яндекс Карт">
+              <span>Яндекс Хорошее место 2025</span>
+              <span>Яндекс Хорошее место 2026</span>
+            </div>
+
             <h1 id="hero-title">Профессиональный уход с любовью к вашему питомцу</h1>
             <p class="lead">Груминг-салон «Пушистый Контур» — чистота, комфорт и забота в каждой детали.</p>
 
@@ -76,16 +81,14 @@ const steps = [
           </div>
 
           <div class="hero-media" aria-label="Пудель до и после груминга">
-            <img class="hero-dog" src={asset("toy-dog.jpg")} alt="Пудель после груминга" loading="eager" />
+            <img class="hero-dog" src={asset("hero-before-after.png")} alt="Пудель до и после груминга" loading="eager" />
           </div>
         </div>
 
-        <div class="container trust-strip" aria-label="Преимущества и отметки">
+        <div class="container trust-strip" aria-label="Преимущества">
           <div class="trust-item"><span>🐾</span>Опытные грумеры с любовью к животным</div>
           <div class="trust-item"><span>🛡</span>Безопасные и гипоаллергенные средства</div>
           <div class="trust-item"><span>♡</span>Индивидуальный подход к каждому питомцу</div>
-          <div class="trust-item"><span>🏆</span>Яндекс Хорошее место 2025</div>
-          <div class="trust-item"><span>🏆</span>Яндекс Хорошее место 2026</div>
         </div>
       </section>
 
@@ -115,7 +118,7 @@ const steps = [
       </section>
 
       <section class="section promo-section" aria-label="Скидка на первое посещение">
-        <div class="container promo-banner" style={`--promo-bg: url('${asset("banner-poodle.png")}')`}>
+        <div class="container promo-banner" style={`--promo-bg: url('${asset("banner-poodle-real.jpg")}')`}>
           <div class="promo-copy">
             <span class="promo-icon">🎁</span>
             <h2>Скидка на первое посещение 10%</h2>
