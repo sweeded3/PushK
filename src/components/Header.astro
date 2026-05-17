@@ -3,34 +3,30 @@ const base = import.meta.env.BASE_URL;
 ---
 <header class="site-header" data-header>
   <div class="container topbar">
-    <a class="brand logo-link" href="#top" aria-label="Пушистый контур — на начало страницы">
-      <img class="brand-logo" src={`${base}assets/logo-wide.png`} alt="Пушистый Контур — груминг салон" width="260" height="96" loading="eager" />
-      <span class="brand-fallback" aria-hidden="true">
-        <strong>Пушистый Контур</strong>
-        <small>груминг салон</small>
-      </span>
+    <a class="brand logo-link" href="#top" aria-label="Пушистый Контур — на начало страницы">
+      <img class="brand-logo" src={`${base}assets/logo-wide.png`} alt="Пушистый Контур — груминг салон" width="330" height="220" loading="eager" />
     </a>
 
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <nav id="site-nav" class="nav" aria-label="Основная навигация">
+    <nav id="site-nav" class="nav" aria-label="Основная навигация" data-nav>
       <a href="#services">Услуги</a>
-      <a href="#about">О нас</a>
-      <a href="#gallery">Галерея</a>
+      <a href="#gallery">До/после</a>
+      <a href="#benefits">Почему мы</a>
       <a href="#reviews">Отзывы</a>
       <a href="#contact">Контакты</a>
     </nav>
 
     <div class="header-actions">
-      <a class="phone-link" href="tel:+79991234567" aria-label="Позвонить в Пушистый контур">
-        <span>Тел.</span>
+      <a class="phone-link" href="tel:+79991234567">
+        <span>ежедневно 9:00–21:00</span>
         <strong>+7 (999) 123-45-67</strong>
       </a>
       <a class="cta" href="#contact">Записаться</a>
     </div>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню" data-nav-toggle>
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
 </header>
