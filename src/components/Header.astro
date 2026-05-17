@@ -1,23 +1,23 @@
 ---
 const base = import.meta.env.BASE_URL;
 ---
-<header class="site-header">
+<header class="site-header" data-header>
   <div class="container topbar">
-    <a class="brand" href="#top" aria-label="Пушистый контур">
-      <img src={`${base}assets/logo-color.png`} alt="Пушистый контур" width="92" height="92" />
+    <a class="brand" href="#top" aria-label="Пушистый контур — на начало страницы">
+      <img src={`${base}assets/logo-color.png`} alt="" width="92" height="92" loading="eager" />
       <span class="brand-copy">
         <strong>Пушистый контур</strong>
-        <small>груминг салон для собак и кошек</small>
+        <small>груминг-салон для собак и кошек</small>
       </span>
     </a>
 
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
       <span></span>
       <span></span>
       <span></span>
     </button>
 
-    <nav id="site-nav" class="nav">
+    <nav id="site-nav" class="nav" aria-label="Основная навигация">
       <a href="#services">Услуги</a>
       <a href="#gallery">Наши работы</a>
       <a href="#benefits">Почему мы</a>
