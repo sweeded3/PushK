@@ -4,7 +4,13 @@ const base = import.meta.env.BASE_URL;
 <header class="site-header" data-header>
   <div class="container topbar">
     <a class="brand logo-link" href="#top" aria-label="Пушистый контур — на начало страницы">
-      <img src={`${base}logo-color.png`} alt="Пушистый контур" width="140" height="96" loading="eager" />
+      <span class="brand-mark" aria-hidden="true">
+        <img src={`${base}logo-color.png`} alt="" width="92" height="92" loading="eager" />
+      </span>
+      <span class="brand-text">
+        <strong>Пушистый Контур</strong>
+        <small>груминг салон</small>
+      </span>
     </a>
 
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
@@ -16,17 +22,16 @@ const base = import.meta.env.BASE_URL;
     <nav id="site-nav" class="nav" aria-label="Основная навигация">
       <a href="#services">Услуги</a>
       <a href="#about">О нас</a>
+      <a href="#gallery">Галерея</a>
       <a href="#reviews">Отзывы</a>
       <a href="#contact">Контакты</a>
     </nav>
 
     <div class="header-actions">
       <a class="phone-link" href="tel:+79991234567" aria-label="Позвонить в Пушистый контур">
-        <span>☎</span>
+        <span aria-hidden="true">☎</span>
         <strong>+7 (999) 123-45-67</strong>
       </a>
-      <span class="social-dot" aria-hidden="true"></span>
-      <span class="social-dot" aria-hidden="true"></span>
       <a class="cta" href="#contact">Записаться</a>
     </div>
   </div>
