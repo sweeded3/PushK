@@ -1,61 +1,95 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
+
 const base = import.meta.env.BASE_URL;
 const asset = (path) => `${base}assets/${path}`;
 
 const services = [
   {
     title: "Комплексный уход для собак",
-    text: "Стрижка, купание, сушка, уход за ушами и когтями",
-    price: "от 2400 ₽",
-    image: asset("toy-dog.jpg")
+    text: "Купание, сушка, стрижка по породе, лапки, ушки и когти.",
+    price: "от 2 400 ₽",
+    image: asset("service-dog.jpg"),
+    badge: "Хит"
   },
   {
-    title: "Комплексный уход для кошек",
-    text: "Полный комплекс ухода для питомца",
-    price: "от 2400 ₽",
-    image: asset("shiba-fur.jpg")
+    title: "Уход за кошками",
+    text: "Бережный вычёс, удаление колтунов, гигиена и спокойный подход.",
+    price: "от 2 200 ₽",
+    image: asset("service-cat.jpg"),
+    badge: "Без стресса"
   },
   {
-    title: "Гигиенический уход SPA",
-    text: "Стрижка, купание, сушка, чистка ушей и когтей",
-    price: "от 2200 ₽",
-    image: asset("black-after.jpg")
+    title: "Гигиенический SPA-уход",
+    text: "Деликатная косметика, чистота, мягкая шерсть и свежий вид.",
+    price: "от 1 200 ₽",
+    image: asset("service-spa.jpg"),
+    badge: "SPA"
   },
   {
-    title: "Дополнительные услуги",
-    text: "Стрижка когтей, чистка ушек, экспресс-уход",
+    title: "Экспресс-услуги",
+    text: "Когти, ушки, лапки, вычёс и быстрая подготовка к важному дню.",
     price: "от 300 ₽",
-    image: asset("corgi-play.jpg")
+    image: asset("service-deshed.jpg"),
+    badge: "Быстро"
   }
 ];
 
 const gallery = [
-  { before: asset("pomeranian-before.jpg"), after: asset("toy-dog.jpg"), label: "Шпиц" },
-  { before: asset("chihuahua-before-1.jpg"), after: asset("chihuahua-after-1.jpg"), label: "Мини-порода" },
-  { before: asset("black-before.jpg"), after: asset("black-after.jpg"), label: "Форма" }
+  {
+    title: "Чихуахуа",
+    before: asset("ba-chihuahua-before.jpg"),
+    after: asset("ba-chihuahua-after.jpg"),
+    caption: "Аккуратный силуэт и чистая линия шерсти"
+  },
+  {
+    title: "Мини-порода",
+    before: asset("ba-black-before.jpg"),
+    after: asset("ba-black-after.jpg"),
+    caption: "Мягкая форма, выразительная мордочка"
+  },
+  {
+    title: "Вычёс",
+    before: asset("ba-shiba-deshed.jpg"),
+    after: asset("ba-cat-deshed.jpg"),
+    caption: "Показываем реальный объём работы"
+  }
 ];
 
 const benefits = [
-  { icon: "🛡", title: "Профессиональные грумеры", text: "Опыт и регулярное обучение" },
-  { icon: "🧴", title: "Премиальная косметика", text: "Безопасные средства для чувствительной кожи" },
-  { icon: "♡", title: "Индивидуальный подход", text: "Учитываем характер и особенности питомца" },
-  { icon: "📷", title: "Фото- и видеоотчет", text: "Красивые кадры после процедуры" },
-  { icon: "🛁", title: "Комфортная атмосфера", text: "Чисто, уютно и без стресса" }
+  { icon: "shield", title: "Безопасно", text: "Фиксация, косметика и инструменты подбираются под питомца." },
+  { icon: "heart", title: "С заботой", text: "Работаем спокойно: без спешки, грубости и лишнего стресса." },
+  { icon: "spark", title: "Чисто", text: "Стерильные инструменты и порядок на каждом рабочем месте." },
+  { icon: "photo", title: "Фотоотчёт", text: "После процедуры можно получить красивые кадры результата." }
 ];
 
 const reviews = [
-  { name: "Анна и Молли", text: "Спасибо за потрясающий уход! Молли всегда рада сюда приходить, выглядит счастливой и такой красивой.", image: asset("toy-dog.jpg"), date: "12 мая 2024" },
-  { name: "Сергей и Барни", text: "Отличный салон, профессиональные мастера и внимательное отношение. Видно, как любят после каждого визита.", image: asset("corgi-play.jpg"), date: "8 мая 2024" },
-  { name: "Мария и Луна", text: "Очень любим «Пушистый Контур»! Всегда чисто, уютно и с заботой о питомцах.", image: asset("black-after.jpg"), date: "3 мая 2024" }
+  {
+    name: "Анна",
+    pet: "и Молли",
+    text: "Очень аккуратный уход, собака спокойная и красивая. Понравилось, что всё объяснили перед процедурой.",
+    rating: "5,0"
+  },
+  {
+    name: "Сергей",
+    pet: "и Барни",
+    text: "Быстро записали, сделали гигиену и когти. Видно, что мастера умеют обращаться с животными.",
+    rating: "5,0"
+  },
+  {
+    name: "Мария",
+    pet: "и Луна",
+    text: "После вычёса дома стало заметно меньше шерсти. Спасибо за терпение и бережное отношение.",
+    rating: "5,0"
+  }
 ];
 
 const steps = [
-  "Выберите услугу и удобное время",
-  "Оставьте заявку на сайте или по телефону",
-  "Мы подтверждаем запись и напоминаем о визите",
-  "Приезжайте и наслаждайтесь результатом"
+  "Выберите услугу",
+  "Оставьте заявку",
+  "Подтвердим запись",
+  "Приезжайте за результатом"
 ];
 ---
 <BaseLayout>
@@ -64,51 +98,60 @@ const steps = [
 
     <main id="content">
       <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-bg" aria-hidden="true"></div>
         <div class="container hero-grid">
           <div class="hero-copy">
             <div class="place-badges" aria-label="Награды Яндекс Карт">
-              <span>Яндекс Хорошее место 2025</span>
-              <span>Яндекс Хорошее место 2026</span>
+              <span><b>2025</b> Яндекс Хорошее место</span>
+              <span><b>2026</b> Яндекс Хорошее место</span>
             </div>
 
             <h1 id="hero-title">Профессиональный уход с любовью к вашему питомцу</h1>
-            <p class="lead">Груминг-салон «Пушистый Контур» — чистота, комфорт и забота в каждой детали.</p>
+            <p class="lead">Груминг-салон «Пушистый Контур» — аккуратные стрижки, мягкий SPA-уход и забота в каждой детали.</p>
 
             <div class="hero-actions" aria-label="Основные действия">
-              <a class="btn btn-primary" href="#contact">Записаться онлайн <span aria-hidden="true">▣</span></a>
+              <a class="btn btn-primary" href="#contact">Записаться онлайн</a>
               <a class="btn btn-secondary" href="#services">Наши услуги</a>
+            </div>
+
+            <div class="hero-mini">
+              <span>pet friendly</span>
+              <span>безопасная косметика</span>
+              <span>бережный подход</span>
             </div>
           </div>
 
-          <div class="hero-media" aria-label="Пудель до и после груминга">
-            <img class="hero-dog" src={asset("hero-before-after.png")} alt="Пудель до и после груминга" loading="eager" />
+          <div class="hero-media">
+            <div class="hero-photo-frame">
+              <img class="hero-dog" src={asset("hero-before-after.png")} alt="Пудель до и после груминга" loading="eager" />
+            </div>
           </div>
-        </div>
-
-        <div class="container trust-strip" aria-label="Преимущества">
-          <div class="trust-item"><span>🐾</span>Опытные грумеры с любовью к животным</div>
-          <div class="trust-item"><span>🛡</span>Безопасные и гипоаллергенные средства</div>
-          <div class="trust-item"><span>♡</span>Индивидуальный подход к каждому питомцу</div>
         </div>
       </section>
 
-      <section id="services" class="section" aria-labelledby="services-title">
+      <section id="services" class="section services-section" aria-labelledby="services-title">
         <div class="container">
           <div class="section-head section-head-row">
-            <h2 id="services-title">Наши Услуги</h2>
-            <a href="#contact">Смотреть все услуги →</a>
+            <div>
+              <p class="eyebrow">услуги</p>
+              <h2 id="services-title">Наши услуги</h2>
+            </div>
+            <a class="section-link" href="#contact">Записаться на услугу →</a>
           </div>
 
           <div class="service-grid">
             {services.map((service) => (
               <article class="service-card">
-                <img src={service.image} alt={service.title} loading="lazy" />
+                <div class="service-image">
+                  <img src={service.image} alt={service.title} loading="lazy" />
+                  <span>{service.badge}</span>
+                </div>
                 <div class="service-body">
                   <h3>{service.title}</h3>
                   <p>{service.text}</p>
                   <div class="service-bottom">
                     <strong>{service.price}</strong>
-                    <span aria-hidden="true">🐾</span>
+                    <a href="#contact" aria-label={`Записаться: ${service.title}`}>↗</a>
                   </div>
                 </div>
               </article>
@@ -118,52 +161,59 @@ const steps = [
       </section>
 
       <section class="section promo-section" aria-label="Скидка на первое посещение">
-        <div class="container promo-banner" style={`--promo-bg: url('${asset("banner-poodle-real.jpg")}')`}>
+        <div class="container promo-banner">
           <div class="promo-copy">
-            <span class="promo-icon">🎁</span>
-            <h2>Скидка на первое посещение 10%</h2>
-            <p>Скидка на первый груминг щенков 15% и специальные условия для заводчиков.</p>
+            <p class="eyebrow light">специальное предложение</p>
+            <h2>Скидка 10% на первое посещение</h2>
+            <p>А для щенков — 15% на первый груминг. Поможем питомцу мягко познакомиться с салоном.</p>
             <a class="btn btn-accent" href="#contact">Получить скидку</a>
           </div>
+          <img src={asset("banner-poodle.jpg")} alt="Пятнистый пудель на груминг-столе" loading="lazy" />
         </div>
       </section>
 
-      <section id="gallery" class="section" aria-labelledby="gallery-title">
+      <section id="gallery" class="section gallery-section" aria-labelledby="gallery-title">
         <div class="container">
           <div class="section-head section-head-row">
-            <h2 id="gallery-title">До и после</h2>
-            <a href="#contact">Смотреть галерею →</a>
+            <div>
+              <p class="eyebrow">реальные работы</p>
+              <h2 id="gallery-title">До и после</h2>
+            </div>
+            <a class="section-link" href="#contact">Хочу такой результат →</a>
           </div>
 
           <div class="before-after-grid">
             {gallery.map((item) => (
               <article class="before-after-card">
+                <h3>{item.title}</h3>
                 <div class="pair">
                   <div>
-                    <img src={item.before} alt={`${item.label} до груминга`} loading="lazy" />
+                    <img src={item.before} alt={`${item.title} до груминга`} loading="lazy" />
                     <span>До</span>
                   </div>
                   <div>
-                    <img src={item.after} alt={`${item.label} после груминга`} loading="lazy" />
+                    <img src={item.after} alt={`${item.title} после груминга`} loading="lazy" />
                     <span>После</span>
                   </div>
                 </div>
+                <p>{item.caption}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="about" class="section why-section" aria-labelledby="benefits-title">
+      <section id="benefits" class="section why-section" aria-labelledby="benefits-title">
         <div class="container">
           <div class="section-head section-head-center">
-            <h2 id="benefits-title">Почему выбирают нас</h2>
+            <p class="eyebrow">почему выбирают нас</p>
+            <h2 id="benefits-title">Мило, чисто и профессионально</h2>
           </div>
 
           <div class="benefit-grid">
             {benefits.map((benefit) => (
               <article>
-                <span class="benefit-icon">{benefit.icon}</span>
+                <span class={`benefit-icon ${benefit.icon}`}></span>
                 <strong>{benefit.title}</strong>
                 <p>{benefit.text}</p>
               </article>
@@ -172,30 +222,37 @@ const steps = [
         </div>
       </section>
 
-      <section id="reviews" class="section" aria-labelledby="reviews-title">
+      <section id="reviews" class="section reviews-section" aria-labelledby="reviews-title">
         <div class="container">
-          <div class="section-head section-head-row">
-            <h2 id="reviews-title">Отзывы наших клиентов</h2>
-            <a href="#contact">Смотреть все отзывы →</a>
-          </div>
+          <div class="reviews-layout">
+            <div class="reviews-aside">
+              <p class="eyebrow">Яндекс Карты</p>
+              <h2 id="reviews-title">Отзывы клиентов</h2>
+              <p>Визуально повторяем блок отзывов из Яндекс Карт. Позже сюда можно подключить реальные ссылки и виджет.</p>
+              <div class="yandex-card">
+                <img src={asset("yandex-good-place-2026.jpg")} alt="Яндекс Хорошее место 2026" loading="lazy" />
+                <div>
+                  <strong>Хорошее место</strong>
+                  <span>2025 · 2026</span>
+                </div>
+              </div>
+            </div>
 
-          <div class="review-grid">
-            {reviews.map((review) => (
-              <article class="review-card">
-                <div class="review-top">
-                  <div class="avatar">★</div>
-                  <div>
-                    <strong>{review.name}</strong>
-                    <div class="stars" aria-label="Оценка 5 из 5">★★★★★</div>
+            <div class="review-grid">
+              {reviews.map((review) => (
+                <article class="review-card">
+                  <div class="review-top">
+                    <div class="avatar">{review.name[0]}</div>
+                    <div>
+                      <strong>{review.name} <span>{review.pet}</span></strong>
+                      <div class="stars" aria-label="Оценка 5 из 5">★★★★★ <b>{review.rating}</b></div>
+                    </div>
                   </div>
-                </div>
-                <p>{review.text}</p>
-                <div class="review-bottom">
-                  <small>{review.date}</small>
-                  <img src={review.image} alt="Питомец клиента после груминга" loading="lazy" />
-                </div>
-              </article>
-            ))}
+                  <p>{review.text}</p>
+                  <a href="#contact">Записаться после отзыва →</a>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -204,6 +261,7 @@ const steps = [
         <div class="container steps-layout">
           <div>
             <div class="section-head">
+              <p class="eyebrow">как попасть к нам</p>
               <h2 id="steps-title">Как записаться</h2>
             </div>
 
@@ -217,14 +275,36 @@ const steps = [
             </div>
           </div>
 
-          <aside id="contact" class="contact-card" aria-labelledby="contact-title" style={`--contact-bg: url('${asset("toy-dog.jpg")}')`}>
+          <aside id="contact" class="contact-card" aria-labelledby="contact-title">
+            <p class="eyebrow light">контакты</p>
             <h2 id="contact-title">Позаботьтесь о своём питомце уже сегодня</h2>
-            <a class="btn btn-accent" href="tel:+79991234567">Записаться онлайн ▣</a>
-            <p>или позвоните нам</p>
+            <a class="btn btn-accent" href="tel:+79991234567">Позвонить</a>
+            <a class="btn btn-light" href="https://wa.me/79991234567">Написать</a>
+            <p>Москва, ул. Пушистая, 15</p>
             <strong><a href="tel:+79991234567">+7 (999) 123-45-67</a></strong>
           </aside>
         </div>
       </section>
     </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <img src={asset("logo-wide.png")} alt="Пушистый Контур" loading="lazy" />
+          <p>Профессиональный уход с любовью к вашему питомцу.</p>
+        </div>
+        <nav aria-label="Навигация в подвале">
+          <a href="#services">Услуги</a>
+          <a href="#gallery">До/после</a>
+          <a href="#reviews">Отзывы</a>
+          <a href="#contact">Контакты</a>
+        </nav>
+        <div class="footer-contact">
+          <a href="tel:+79991234567">+7 (999) 123-45-67</a>
+          <span>Ежедневно 9:00–21:00</span>
+          <span>© 2026 Пушистый Контур</span>
+        </div>
+      </div>
+    </footer>
   </div>
 </BaseLayout>
