@@ -19,6 +19,12 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 120px;
+}
+
+html.nav-open,
+html.nav-open body {
+  overflow: hidden;
 }
 
 body {
@@ -45,6 +51,17 @@ a {
   text-decoration: none;
 }
 
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid rgba(29, 138, 141, 0.5);
+  outline-offset: 4px;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -60,6 +77,7 @@ img {
   color: white;
   padding: 10px 14px;
   border-radius: 999px;
+  font-weight: 800;
 }
 
 .skip-link:focus {
@@ -76,7 +94,7 @@ img {
   top: 0;
   z-index: 100;
   backdrop-filter: blur(14px);
-  background: rgba(255, 250, 245, 0.86);
+  background: rgba(255, 250, 245, 0.9);
   border-bottom: 1px solid rgba(255, 255, 255, 0.6);
 }
 
@@ -107,6 +125,19 @@ img {
   height: 2px;
   border-radius: 999px;
   background: var(--teal-deep);
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.site-header.is-open .nav-toggle span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.site-header.is-open .nav-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+.site-header.is-open .nav-toggle span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 .brand {
@@ -146,6 +177,11 @@ img {
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--text);
+}
+
+.nav a:hover,
+.contact-list a:hover {
+  color: var(--teal-deep);
 }
 
 .cta,
@@ -451,7 +487,8 @@ img {
   color: var(--muted);
 }
 
-.story-points {
+.story-points,
+.contact-list {
   margin: 22px 0 0;
   padding: 0;
   list-style: none;
@@ -459,12 +496,18 @@ img {
   gap: 12px;
 }
 
-.story-points li {
+.story-points li,
+.contact-list li {
   padding: 14px 16px;
   border-radius: 18px;
   background: rgba(29, 138, 141, 0.07);
   color: var(--teal-deep);
   font-weight: 700;
+}
+
+.contact-list strong {
+  font-family: "Manrope", sans-serif;
+  color: var(--text);
 }
 
 .story-media {
@@ -576,8 +619,8 @@ img {
 }
 
 @media (max-width: 720px) {
-  .site-header {
-    position: sticky;
+  html {
+    scroll-padding-top: 96px;
   }
 
   .topbar {
@@ -585,6 +628,19 @@ img {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    gap: 14px;
+  }
+
+  .brand img {
+    width: 64px;
+  }
+
+  .brand-copy strong {
+    font-size: 1.15rem;
+  }
+
+  .brand-copy small {
+    max-width: 170px;
   }
 
   .nav-toggle {
@@ -596,7 +652,7 @@ img {
     width: 100%;
     padding: 14px;
     border-radius: 22px;
-    background: rgba(255, 255, 255, 0.94);
+    background: rgba(255, 255, 255, 0.96);
     box-shadow: var(--shadow);
     flex-direction: column;
     align-items: flex-start;
@@ -606,8 +662,17 @@ img {
     display: flex;
   }
 
+  .nav a {
+    width: 100%;
+    padding: 10px 8px;
+  }
+
   .cta {
     display: none;
+  }
+
+  .hero {
+    padding-top: 28px;
   }
 
   .hero-copy h1,
@@ -644,6 +709,10 @@ img {
     width: 120px;
   }
 
+  .section {
+    padding: 52px 0;
+  }
+
   .story-copy,
   .step-card,
   .benefit-grid article,
@@ -651,5 +720,16 @@ img {
   .service-body,
   .cta-panel {
     padding: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
