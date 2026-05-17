@@ -115,14 +115,13 @@ const steps = [
       </section>
 
       <section class="section promo-section" aria-label="Скидка на первое посещение">
-        <div class="container promo-banner">
+        <div class="container promo-banner" style={`--promo-bg: url('${asset("banner-poodle.png")}')`}>
           <div class="promo-copy">
             <span class="promo-icon">🎁</span>
             <h2>Скидка на первое посещение 10%</h2>
             <p>Скидка на первый груминг щенков 15% и специальные условия для заводчиков.</p>
             <a class="btn btn-accent" href="#contact">Получить скидку</a>
           </div>
-          <img src={asset("banner-poodle.png")} alt="Пятнистый пудель на промо-баннере" loading="lazy" />
         </div>
       </section>
 
@@ -215,7 +214,7 @@ const steps = [
             </div>
           </div>
 
-          <aside id="contact" class="contact-card" aria-labelledby="contact-title">
+          <aside id="contact" class="contact-card" aria-labelledby="contact-title" style={`--contact-bg: url('${asset("toy-dog.jpg")}')`}>
             <h2 id="contact-title">Позаботьтесь о своём питомце уже сегодня</h2>
             <a class="btn btn-accent" href="tel:+79991234567">Записаться онлайн ▣</a>
             <p>или позвоните нам</p>
