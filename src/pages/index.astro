@@ -5,54 +5,56 @@ const base = import.meta.env.BASE_URL;
 
 const services = [
   {
-    title: "Комплексный уход",
-    text: "Купание, сушка, стрижка, лапы, уши, когти и аккуратная форма под породу, шерсть и характер питомца.",
+    title: "Комплексный уход для собак",
+    text: "Стрижка, купание, сушка, уход за ушами и когтями",
+    price: "от 2400 ₽",
     image: `${base}assets/toy-dog.jpg`
   },
   {
-    title: "Экспресс-линька",
-    text: "Вычесывание подшерстка, освежение шерсти и легкое восстановление комфорта без лишнего стресса.",
+    title: "Комплексный уход для кошек",
+    text: "Полный комплекс ухода для питомца",
+    price: "от 2400 ₽",
     image: `${base}assets/shiba-fur.jpg`
   },
   {
-    title: "SPA и уход",
-    text: "Деликатная косметика, мягкие ритуалы, чистая кожа и ухоженный вид для собак и кошек с чувствительной шерстью.",
+    title: "Гигиенический уход SPA",
+    text: "Стрижка, купание, сушка, чистка ушей и когтей",
+    price: "от 2200 ₽",
     image: `${base}assets/black-after.jpg`
+  },
+  {
+    title: "Дополнительные услуги",
+    text: "Стрижка когтей, чистка ушек, экспресс-уход",
+    price: "от 300 ₽",
+    image: `${base}assets/corgi-play.jpg`
   }
 ];
 
 const gallery = [
-  { before: `${base}assets/chihuahua-before-1.jpg`, after: `${base}assets/chihuahua-after-1.jpg`, label: "Чихуахуа" },
-  { before: `${base}assets/black-before.jpg`, after: `${base}assets/black-after.jpg`, label: "Мягкая стрижка" },
-  { before: `${base}assets/pomeranian-before.jpg`, after: `${base}assets/toy-dog.jpg`, label: "Объем и форма" }
+  { before: `${base}assets/pomeranian-before.jpg`, after: `${base}assets/toy-dog.jpg`, label: "Шпиц" },
+  { before: `${base}assets/chihuahua-before-1.jpg`, after: `${base}assets/chihuahua-after-1.jpg`, label: "Мини-порода" },
+  { before: `${base}assets/black-before.jpg`, after: `${base}assets/black-after.jpg`, label: "Форма" }
+];
+
+const benefits = [
+  { icon: "🛡", title: "Профессиональные грумеры", text: "Опыт и регулярное обучение" },
+  { icon: "🧴", title: "Премиальная косметика", text: "Безопасные средства для чувствительной кожи" },
+  { icon: "♡", title: "Индивидуальный подход", text: "Учитываем характер и особенности питомца" },
+  { icon: "📷", title: "Фото- и видеоотчет", text: "Красивые кадры после процедуры" },
+  { icon: "🛁", title: "Комфортная атмосфера", text: "Чисто, уютно и без стресса" }
 ];
 
 const reviews = [
-  "Очень мягкий подход и без стресса для собаки. После визита питомец выглядит дорого и спокойно.",
-  "Нравится, что тут не просто стригут, а действительно видят породу, форму и характер.",
-  "Салон выглядит уютно, мастера внимательные, а фото после ухода хочется сразу ставить в сторис."
+  { name: "Анна и Молли", text: "Спасибо за потрясающий уход! Молли всегда рада сюда приходить, выглядит счастливой и такой красивой.", image: `${base}assets/toy-dog.jpg`, date: "12 мая 2024" },
+  { name: "Сергей и Барни", text: "Отличный салон, профессиональные мастера и внимательное отношение. Видно, как любят после каждого визита.", image: `${base}assets/corgi-play.jpg`, date: "8 мая 2024" },
+  { name: "Мария и Луна", text: "Очень любим «Пушистый Контур»! Всегда чисто, уютно и с заботой о питомцах.", image: `${base}assets/black-after.jpg`, date: "3 мая 2024" }
 ];
 
 const steps = [
-  {
-    title: "Запись без хаоса",
-    text: "В пару сообщений или в один звонок. Подскажем формат ухода и подберем удобное окно."
-  },
-  {
-    title: "Знакомство с питомцем",
-    text: "Учитываем характер, чувствительность, прошлый опыт и состояние шерсти до начала ухода."
-  },
-  {
-    title: "Красивый финал",
-    text: "Чистая форма, фото результата и рекомендации по домашнему уходу после визита."
-  }
-];
-
-const guarantees = [
-  "индивидуальный план ухода",
-  "бережная фиксация без грубости",
-  "чистые инструменты и аккуратная зона",
-  "понятная коммуникация до и после процедуры"
+  "Выберите услугу и удобное время",
+  "Оставьте заявку на сайте или по телефону",
+  "Мы подтверждаем запись и напоминаем о визите",
+  "Приезжайте и наслаждайтесь результатом"
 ];
 ---
 <BaseLayout>
@@ -63,56 +65,34 @@ const guarantees = [
       <section class="hero" aria-labelledby="hero-title">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">груминг с вниманием и вкусом</p>
-            <h1 id="hero-title">Профессиональный уход для пушистых, который выглядит как забота, а не поток.</h1>
-            <p class="lead">Пушистый контур — мягкий premium-care для собак и кошек: деликатный груминг, красивые формы, спокойная атмосфера и живые фото работ, которым веришь.</p>
+            <h1 id="hero-title">Профессиональный уход с любовью к вашему питомцу</h1>
+            <p class="lead">Груминг-салон «Пушистый Контур» — чистота, комфорт и забота в каждой детали.</p>
 
             <div class="hero-actions" aria-label="Основные действия">
-              <a class="btn btn-primary" href="#contact">Записаться онлайн</a>
-              <a class="btn btn-secondary" href="#services">Смотреть услуги</a>
-            </div>
-
-            <div class="hero-facts" aria-label="Ключевые преимущества">
-              <article>
-                <strong>1000+</strong>
-                <span>довольных пушистых клиентов</span>
-              </article>
-              <article>
-                <strong>4.9</strong>
-                <span>средняя оценка по отзывам</span>
-              </article>
-              <article>
-                <strong>до/после</strong>
-                <span>честная галерея реальных работ</span>
-              </article>
+              <a class="btn btn-primary" href="#contact">Записаться онлайн <span aria-hidden="true">▣</span></a>
+              <a class="btn btn-secondary" href="#services">Наши услуги</a>
             </div>
           </div>
 
-          <div class="hero-media" aria-label="Фотографии питомцев после ухода">
-            <div class="hero-card hero-card-main">
-              <img src={`${base}assets/chihuahua-after-3.jpg`} alt="Ухоженная чихуахуа после груминга" loading="eager" />
-            </div>
-            <div class="hero-card hero-card-accent">
-              <img src={`${base}assets/pomeranian-before.jpg`} alt="Пушистый шпиц перед уходом" loading="lazy" />
-            </div>
-            <div class="hero-logo" aria-hidden="true">
-              <img src={`${base}assets/logo-color.png`} alt="" loading="lazy" />
-            </div>
+          <div class="hero-media" aria-label="Пятнистый пудель на промо-баннере">
+            <img class="hero-dog" src={`${base}assets/pomeranian-before.jpg`} alt="Пятнистый пудель в груминг-салоне" loading="eager" />
           </div>
         </div>
-      </section>
 
-      <section class="band" aria-label="Преимущества салона">
-        <div class="container chips">
-          {guarantees.map((item) => <span>{item}</span>)}
+        <div class="container trust-strip" aria-label="Преимущества и отметки">
+          <div class="trust-item"><span>🐾</span>Опытные грумеры с любовью к животным</div>
+          <div class="trust-item"><span>🛡</span>Безопасные и гипоаллергенные средства</div>
+          <div class="trust-item"><span>♡</span>Индивидуальный подход к каждому питомцу</div>
+          <div class="trust-item"><span>🏆</span>Яндекс Хорошее место 2025</div>
+          <div class="trust-item"><span>🏆</span>Яндекс Хорошее место 2026</div>
         </div>
       </section>
 
       <section id="services" class="section" aria-labelledby="services-title">
         <div class="container">
-          <div class="section-head">
-            <p class="eyebrow">Наши услуги</p>
-            <h2 id="services-title">Уход, в котором видно и мастерство, и любовь к пушистым.</h2>
+          <div class="section-head section-head-row">
+            <h2 id="services-title">Наши Услуги</h2>
+            <a href="#contact">Смотреть все услуги →</a>
           </div>
 
           <div class="service-grid">
@@ -122,6 +102,10 @@ const guarantees = [
                 <div class="service-body">
                   <h3>{service.title}</h3>
                   <p>{service.text}</p>
+                  <div class="service-bottom">
+                    <strong>{service.price}</strong>
+                    <span aria-hidden="true">🐾</span>
+                  </div>
                 </div>
               </article>
             ))}
@@ -129,11 +113,23 @@ const guarantees = [
         </div>
       </section>
 
-      <section id="gallery" class="section section-soft" aria-labelledby="gallery-title">
+      <section class="section promo-section" aria-label="Скидка на первое посещение">
+        <div class="container promo-banner">
+          <div class="promo-copy">
+            <span class="promo-icon">🎁</span>
+            <h2>Скидка на первое посещение 10%</h2>
+            <p>Скидка на первый груминг щенков 15% и специальные условия для заводчиков.</p>
+            <a class="btn btn-accent" href="#contact">Получить скидку</a>
+          </div>
+          <img src={`${base}assets/pomeranian-before.jpg`} alt="Пятнистый пудель на промо-баннере" loading="lazy" />
+        </div>
+      </section>
+
+      <section id="gallery" class="section" aria-labelledby="gallery-title">
         <div class="container">
-          <div class="section-head">
-            <p class="eyebrow">Наши работы</p>
-            <h2 id="gallery-title">Реальные питомцы, реальные преображения, реальное доверие.</h2>
+          <div class="section-head section-head-row">
+            <h2 id="gallery-title">До и после</h2>
+            <a href="#contact">Смотреть галерею →</a>
           </div>
 
           <div class="before-after-grid">
@@ -149,107 +145,81 @@ const guarantees = [
                     <span>После</span>
                   </div>
                 </div>
-                <h3>{item.label}</h3>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="benefits" class="section" aria-labelledby="benefits-title">
+      <section id="about" class="section why-section" aria-labelledby="benefits-title">
         <div class="container">
-          <div class="section-head">
-            <p class="eyebrow">Почему выбирают нас</p>
-            <h2 id="benefits-title">Потому что здесь одинаково важны комфорт, аккуратность и конечный образ питомца.</h2>
+          <div class="section-head section-head-center">
+            <h2 id="benefits-title">Почему выбирают нас</h2>
           </div>
 
           <div class="benefit-grid">
-            <article>
-              <strong>Спокойный опыт</strong>
-              <p>Без лишнего стресса, с мягким обращением и вниманием к характеру животного.</p>
-            </article>
-            <article>
-              <strong>Ухоженный результат</strong>
-              <p>Не просто постригли, а собрали выразительную, чистую и красивую форму.</p>
-            </article>
-            <article>
-              <strong>Честная коммуникация</strong>
-              <p>Объясняем, какой уход подойдет, что можно сделать сейчас и как поддерживать результат дома.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" aria-labelledby="atmosphere-title">
-        <div class="container story-grid">
-          <div class="story-card story-copy">
-            <p class="eyebrow">Атмосфера</p>
-            <h2 id="atmosphere-title">Не просто груминг, а спокойный ритуал ухода для тех, кто любит своих пушистых красиво.</h2>
-            <p>Мы сознательно уходим от ощущения поточного салона. Здесь важны свет, мягкий ритм, бережное касание, чистая косметика и результат, который радует не только на фото, но и в жизни.</p>
-            <ul class="story-points">
-              <li>бережный подход к тревожным питомцам</li>
-              <li>чистая, светлая и дружелюбная среда</li>
-              <li>выразительная форма под породу и характер</li>
-            </ul>
-          </div>
-          <div class="story-card story-media">
-            <img src={`${base}assets/corgi-play.jpg`} alt="Довольный корги после груминга" loading="lazy" />
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-soft" aria-labelledby="steps-title">
-        <div class="container">
-          <div class="section-head">
-            <p class="eyebrow">Как это проходит</p>
-            <h2 id="steps-title">Понятный путь от записи до счастливого хвоста на выходе.</h2>
-          </div>
-
-          <div class="step-grid">
-            {steps.map((step, index) => (
-              <article class="step-card">
-                <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
+            {benefits.map((benefit) => (
+              <article>
+                <span class="benefit-icon">{benefit.icon}</span>
+                <strong>{benefit.title}</strong>
+                <p>{benefit.text}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="reviews" class="section section-soft" aria-labelledby="reviews-title">
+      <section id="reviews" class="section" aria-labelledby="reviews-title">
         <div class="container">
-          <div class="section-head">
-            <p class="eyebrow">Отзывы</p>
-            <h2 id="reviews-title">Когда владельцы возвращаются, это всегда лучший сигнал.</h2>
+          <div class="section-head section-head-row">
+            <h2 id="reviews-title">Отзывы наших клиентов</h2>
+            <a href="#contact">Смотреть все отзывы →</a>
           </div>
 
           <div class="review-grid">
-            {reviews.map((quote) => (
+            {reviews.map((review) => (
               <article class="review-card">
-                <p>“{quote}”</p>
+                <div class="review-top">
+                  <div class="avatar">★</div>
+                  <div>
+                    <strong>{review.name}</strong>
+                    <div class="stars" aria-label="Оценка 5 из 5">★★★★★</div>
+                  </div>
+                </div>
+                <p>{review.text}</p>
+                <div class="review-bottom">
+                  <small>{review.date}</small>
+                  <img src={review.image} alt="Питомец клиента после груминга" loading="lazy" />
+                </div>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="contact" class="section cta-section" aria-labelledby="contact-title">
-        <div class="container cta-panel">
+      <section class="section steps-section" aria-labelledby="steps-title">
+        <div class="container steps-layout">
           <div>
-            <p class="eyebrow">Запись</p>
-            <h2 id="contact-title">Подарите своему питомцу уход, в который хочется возвращаться.</h2>
-            <p>Напишите или позвоните — подскажем формат процедуры, примерную длительность и подготовку перед визитом.</p>
-            <ul class="contact-list">
-              <li><strong>Телефон:</strong> <a href="tel:+79991234567">+7 999 123-45-67</a></li>
-              <li><strong>Почта:</strong> <a href="mailto:pushistykontur@mail.ru">pushistykontur@mail.ru</a></li>
-              <li><strong>График:</strong> ежедневно, по предварительной записи</li>
-            </ul>
+            <div class="section-head">
+              <h2 id="steps-title">Как записаться</h2>
+            </div>
+
+            <div class="step-grid">
+              {steps.map((step, index) => (
+                <article class="step-card">
+                  <span aria-hidden="true">{index + 1}</span>
+                  <p>{step}</p>
+                </article>
+              ))}
+            </div>
           </div>
-          <div class="cta-actions">
-            <a class="btn btn-primary" href="tel:+79991234567">Позвонить</a>
-            <a class="btn btn-secondary" href="mailto:pushistykontur@mail.ru">Написать</a>
-          </div>
+
+          <aside id="contact" class="contact-card" aria-labelledby="contact-title">
+            <h2 id="contact-title">Позаботьтесь о своём питомце уже сегодня</h2>
+            <a class="btn btn-accent" href="tel:+79991234567">Записаться онлайн ▣</a>
+            <p>или позвоните нам</p>
+            <strong><a href="tel:+79991234567">+7 (999) 123-45-67</a></strong>
+          </aside>
         </div>
       </section>
     </main>
